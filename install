@@ -1,0 +1,5 @@
+#!/bin/sh
+
+curl --remote-name https://raw.githubusercontent.com/thoughtbot/laptop/master/mac
+mv laptop.local ~/.laptop.local
+mkdir logs
