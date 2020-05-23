@@ -3,5 +3,5 @@
 if [ -f "$HOME/setup/laptop/laptop.setup" ]; then
   fancy_echo "Running your customizations from $HOME/setup/laptop/laptop.setup ..."
   # shellcheck disable=SC1090
-  . "$HOME/setup/laptop/laptop.setup
+  . "$HOME/setup/laptop/laptop.setup"
 fi

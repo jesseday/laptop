@@ -1,5 +1,10 @@
 #!/bin/sh
 
+wd=$(pwd)
+
 curl --remote-name https://raw.githubusercontent.com/thoughtbot/laptop/master/mac
-mv laptop.local ~/.laptop.local
-mkdir logs
+cp "$wd/laptop.local" ~/.laptop.local
+
+if [ ! -d "$wd/logs" ]; then
+  mkdir "$wd/logs"
+fi
