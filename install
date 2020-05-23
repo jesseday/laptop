@@ -2,8 +2,20 @@
 
 wd=$(pwd)
 
-curl --remote-name https://raw.githubusercontent.com/thoughtbot/laptop/master/mac
-cp "$wd/laptop.local" ~/.laptop.local
+if [ ! -f "$wd/mac" ]; then
+  curl --remote-name https://raw.githubusercontent.com/thoughtbot/laptop/master/mac
+else
+  echo "A $wd/mac setup script exists.\n"
+  echo "To update the script run"
+  echo "curl --remote-name
+  https://raw.githubusercontent.com/thoughtbot/laptop/master/mac"
+fi
+
+if [ -f "~/.laptop.local" ]; then
+  cp "$wd/laptop.local" ~/.laptop.local
+else
+  echo "A ~/.laptop.local file already exists"
+fi
 
 if [ ! -d "$wd/logs" ]; then
   mkdir "$wd/logs"
