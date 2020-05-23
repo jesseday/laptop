@@ -6,9 +6,8 @@ if [ ! -f "$wd/mac" ]; then
   curl --remote-name https://raw.githubusercontent.com/thoughtbot/laptop/master/mac
 else
   echo "A $wd/mac setup script exists.\n"
-  echo "To update the script run"
-  echo "curl --remote-name
-  https://raw.githubusercontent.com/thoughtbot/laptop/master/mac"
+  echo "To update the script from the thoughtbot/laptop repo, run"
+  echo "rm mac && ./install"
 fi
 
 if [ -f "~/.laptop.local" ]; then
