@@ -4,6 +4,7 @@ fancy_echo "Updating Homebrew formulae ..."
 brew bundle --file=- <<EOF
 # Unix
 brew "ack"
+brew "wget"
 brew "wrk"
 brew "httpie"
 brew "jq"
@@ -25,6 +26,27 @@ install_asdf_language "yarn"
 
 fancy_echo "Installing latest Go..."
 install_asdf_language "golang"
+
+
+if ! command -v composer >/dev/null; then
+  fancy_echo "Installing Composer..."
+  EXPECTED_CHECKSUM="$(wget -q -O - https://composer.github.io/installer.sig)"
+  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+  ACTUAL_CHECKSUM="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"
+
+  if [ "$EXPECTED_CHECKSUM" != "$ACTUAL_CHECKSUM" ]; then
+    fancy_echo "Unable to install composer, checksum is invalid".
+  else
+    php composer-setup.php --quiet
+    rm composer-setup.php
+    mv composer.phar /usr/local/bin/composer
+  fi
+else
+  fancy_echo "Composer already installed"
+fi;
+
+fancy_echo "Next Steps:"
+fancy_echo " * Install Lando: https://github.com/lando/lando/releases"
 
 
 
