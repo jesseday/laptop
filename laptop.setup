@@ -8,10 +8,14 @@ brew "wget"
 brew "wrk"
 brew "httpie"
 brew "jq"
+brew "yq"
 brew "tldr"
 
 # Git
 brew "diff-so-fancy"
+
+# Github
+brew "gh"
 
 # Databases
 brew "mysql@5.7"
