@@ -10,7 +10,7 @@ else
   echo "rm mac && ./install"
 fi
 
-if [ -f "~/.laptop.local" ]; then
+if [ ! -f "~/.laptop.local" ]; then
   cp "$wd/laptop.local" ~/.laptop.local
 else
   echo "A ~/.laptop.local file already exists"
