@@ -4,6 +4,8 @@ fancy_echo "Updating Homebrew formulae ..."
 brew bundle --file=- <<EOF
 # Unix
 brew "ack"
+brew "fd"
+brew "exa"
 brew "wget"
 brew "wrk"
 brew "httpie"
