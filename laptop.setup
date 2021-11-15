@@ -12,6 +12,7 @@ brew "httpie"
 brew "jq"
 brew "yq"
 brew "tldr"
+brew "starship"
 
 # Git
 brew "diff-so-fancy"
